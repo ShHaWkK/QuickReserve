@@ -4,6 +4,9 @@ import connectDB from './config/db';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middlewares
+app.use(express.json()); // for parsing application/json
+
 // Connect to Database
 connectDB();
 

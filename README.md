@@ -1,6 +1,6 @@
 # QuickReserve
 
-QuickReserve est une plateforme moderne de réservation en ligne qui permet aux utilisateurs de réserver diverses ressources telles que des salles, des équipements, ou des véhicules. Ce projet utilise TypeScript à la fois pour le backend et le frontend, offrant une expérience utilisateur fluide et sécurisée.
+QuickReserve est une plateforme moderne de réservation en ligne qui permet aux utilisateurs de réserver diverses ressources telles que des salles, des équipements, ou des véhicules. Ce projet utilise TypeScript à la fois pour le backend et le frontend.
 
 ## Caractéristiques
 
@@ -13,7 +13,7 @@ QuickReserve est une plateforme moderne de réservation en ligne qui permet aux 
 
 Ce projet est construit avec les technologies suivantes :
 - **Backend** : Node.js avec Express
-- **Frontend** : React (choisir selon l'implémentation)
+- **Frontend** : React 
 - **Base de données** : PostgreSQL
 - **Authentification** : JWT pour la gestion des sessions utilisateurs
 

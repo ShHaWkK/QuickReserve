@@ -1,14 +1,17 @@
+// backend/src/app.ts
 import express from 'express';
 import connectDB from './config/db';
+import userRoutes from './routes/userRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-app.use(express.json()); // for parsing application/json
+app.use(express.json()); // Middleware for JSON parsing
 
-// Connect to Database
 connectDB();
+
+// Routes
+app.use('/api/users', userRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello from QuickReserve Backend!');

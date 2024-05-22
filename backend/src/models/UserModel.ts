@@ -1,6 +1,13 @@
 // backend/src/models/UserModel.ts
-import mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
+
+interface IUser extends Document {
+    name: string;
+    email: string;
+    password: string;
+    matchPassword: (enteredPassword: string) => Promise<boolean>;
+}
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -8,7 +15,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true }
 });
 
-userSchema.pre('save', async function (next) {
+userSchema.pre<IUser>('save', async function (next) {
     if (!this.isModified('password')) {
         return next();
     }
@@ -16,9 +23,9 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-userSchema.methods.matchPassword = async function (enteredPassword) {
+userSchema.methods.matchPassword = async function (enteredPassword: string) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model<IUser>('User', userSchema);
 export default User;

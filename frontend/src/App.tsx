@@ -1,7 +1,7 @@
 // frontend/src/App.tsx
 import React from 'react';
 import './App.css';
-import Register from './components/Register' // Ensure the path is correct based on your structure
+import Register from './components/Register';
 
 function App() {
   return (
